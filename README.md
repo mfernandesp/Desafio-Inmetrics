@@ -36,6 +36,8 @@
 	1. **FeaturesAPI**: Features destinadas ao teste de API
 	2. **FeaturesWEB**: Features destinadas ao teste WEB
 	
+	***Obs: BasePage e BaseSteps possuem metódos comuns a outras classes Steps e Page****
+	
 ### Desafio API: 
 - Projeto implementado utilizando a ferramenta Postman 
 - Aba ***Authorization***: Informado o nome de usuário e senha (quando necessário)
