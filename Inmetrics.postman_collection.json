@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "ba660443-7b0a-45a2-ac98-bb124b925a8a",
+		"name": "Inmetrics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar usuário (POST)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce21a247-14ff-42dc-98d8-4bebd731e90e",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check return data\", function () {\r",
+							"\r",
+							"    var expectedResponse = \"{\"+ \r",
+							"    \" \\\"empregadoId\\\": 1522, \" +\r",
+							"    \"\\\"nome\\\": \\\"César Hugo Luís Moura\\\",\"+\r",
+							"    \"\\\"sexo\\\": \\\"m\\\",\" +\r",
+							"    \"\\\"cpf\\\": \\\"613.604.030-19\\\",\" +\r",
+							"    \"\\\"cargo\\\": \\\"Analista de Testes Automatizados\\\",\" +\r",
+							"    \"\\\"admissao\\\": \\\"27/08/2020\\\", \" +\r",
+							"    \"\\\"salario\\\": \\\"4.500,00\\\",\" +\r",
+							"    \"\\\"comissao\\\": \\\"104,00\\\",\" + \r",
+							"    \"\\\"tipoContratacao\\\": \\\"clt\\\"\"+\r",
+							"    \"}\";\r",
+							"\r",
+							"    pm.response.to.have.jsonBody(JSON.parse(expectedResponse))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "automacao",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "inmetrics",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"admissao\": \"27/08/2020\",\r\n  \"cargo\": \"Analista de Testes Automatizados\",\r\n  \"comissao\": \"104,00\",\r\n  \"cpf\": \"613.604.030-19\",\r\n  \"departamentoId\": 1,\r\n  \"nome\": \"César Hugo Luís Moura\",\r\n  \"salario\": \"4.500,00\",\r\n  \"sexo\": \"m\",\r\n  \"tipoContratacao\": \"clt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://inm-api-test.herokuapp.com/empregado/cadastrar",
+					"protocol": "https",
+					"host": [
+						"inm-api-test",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"empregado",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar usuário (POST)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "293aeaf5-1821-491e-b6aa-8aaa244a63aa",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check return data\", function () {\r",
+							"\r",
+							"    var expectedResponse = \"{\"+ \r",
+							"    \" \\\"empregadoId\\\": 1525, \" +\r",
+							"    \"\\\"nome\\\": \\\"Daniel Anthony Brito\\\",\"+\r",
+							"    \"\\\"sexo\\\": \\\"m\\\",\" +\r",
+							"    \"\\\"cpf\\\": \\\"628.443.982-27\\\",\" +\r",
+							"    \"\\\"cargo\\\": \\\"Testador\\\",\" +\r",
+							"    \"\\\"admissao\\\": \\\"21/08/2019\\\", \" +\r",
+							"    \"\\\"salario\\\": \\\"1.500,00\\\",\" +\r",
+							"    \"\\\"comissao\\\": \\\"300,00\\\",\" + \r",
+							"    \"\\\"tipoContratacao\\\": \\\"pj\\\"\"+\r",
+							"    \"}\";\r",
+							"\r",
+							"    pm.response.to.have.jsonBody(JSON.parse(expectedResponse))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "automacao",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "inmetrics",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"admissao\": \"21/08/2019\",\r\n  \"cargo\": \"Testador\",\r\n  \"comissao\": \"300,00\",\r\n  \"cpf\": \"628.443.982-27\",\r\n  \"departamentoId\": 2,\r\n  \"nome\": \"Daniel Anthony Brito\",\r\n  \"salario\": \"1.500,00\",\r\n  \"sexo\": \"f\",\r\n  \"tipoContratacao\": \"pf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://inm-api-test.herokuapp.com/empregado/alterar/1525",
+					"protocol": "https",
+					"host": [
+						"inm-api-test",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"empregado",
+						"alterar",
+						"1525"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os usuários cadastrado (GET)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "315ce3f8-4f22-4089-a728-37673725861f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check return data\", function () {\r",
+							"\r",
+							"    var expectedResponse = \"{\"+ \r",
+							"    \" \\\"empregadoId\\\": 1522, \" +\r",
+							"    \"\\\"nome\\\": \\\"César Hugo Luís Moura\\\",\"+\r",
+							"    \"\\\"sexo\\\": \\\"m\\\",\" +\r",
+							"    \"\\\"cpf\\\": \\\"613.604.030-19\\\",\" +\r",
+							"    \"\\\"cargo\\\": \\\"Analista de Testes Automatizados\\\",\" +\r",
+							"    \"\\\"admissao\\\": \\\"27/08/2020\\\", \" +\r",
+							"    \"\\\"salario\\\": \\\"4.500,00\\\",\" +\r",
+							"    \"\\\"comissao\\\": \\\"104,00\\\",\" + \r",
+							"    \"\\\"tipoContratacao\\\": \\\"clt\\\"\"+\r",
+							"    \"}\";\r",
+							"\r",
+							"    pm.response.to.have.jsonBody(JSON.parse(expectedResponse))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://inm-api-test.herokuapp.com/empregado/list_all",
+					"protocol": "https",
+					"host": [
+						"inm-api-test",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"empregado",
+						"list_all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista usuário cadastrado (GET)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f315ec70-6835-47c1-a43f-f5b4eb699db4",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check return data\", function () {\r",
+							"\r",
+							"    var expectedResponse = \"{\"+ \r",
+							"    \" \\\"empregadoId\\\": 1522, \" +\r",
+							"    \"\\\"nome\\\": \\\"César Hugo Luís Moura\\\",\"+\r",
+							"    \"\\\"sexo\\\": \\\"m\\\",\" +\r",
+							"    \"\\\"cpf\\\": \\\"613.604.030-19\\\",\" +\r",
+							"    \"\\\"cargo\\\": \\\"Analista de Testes Automatizados\\\",\" +\r",
+							"    \"\\\"admissao\\\": \\\"27/08/2020\\\", \" +\r",
+							"    \"\\\"salario\\\": \\\"4.500,00\\\",\" +\r",
+							"    \"\\\"comissao\\\": \\\"104,00\\\",\" + \r",
+							"    \"\\\"tipoContratacao\\\": \\\"clt\\\"\"+\r",
+							"    \"}\";\r",
+							"\r",
+							"    pm.response.to.have.jsonBody(JSON.parse(expectedResponse))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://inm-api-test.herokuapp.com/empregado/list/1511",
+					"protocol": "https",
+					"host": [
+						"inm-api-test",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"empregado",
+						"list",
+						"1511"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
