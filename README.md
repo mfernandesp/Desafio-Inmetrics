@@ -39,7 +39,7 @@
 	***Obs: BasePage e BaseSteps possuem metódos comuns a outras classes Steps e Page****
 	
 ### Desafio API: 
-- Projeto implementado utilizando a ferramenta Postman 
+- Projeto implementado utilizando a ferramenta Postman (Inmetrics.postman_collection.json)
 - Aba ***Authorization***: Informado o nome de usuário e senha (quando necessário)
 - Aba ***Body***: Informado o conteúdo a ser enviado em JSON (quando necessário)
 - Aba ***Tests***: Script que valida o retorno da requisição
